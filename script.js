@@ -56,3 +56,60 @@ var result1 = find_odd(num);
 
 console.log("Is even:", result);
 console.log("Is odd:", result1);
+// Write a js program to check whether a number is prime, Armstrong or perfect number using functions.
+function Armstrong(number){
+     var numberofdigit=number.toString().length   //number of length
+      var sum=0;                                  // Expose sum = 0
+      temp=number;
+      while(temp>0){
+      reminder=temp % 10;                          
+      sum=sum+Math.pow(reminder,numberofdigit);        
+      temp=Math.floor(temp / 10); 
+      }
+      if (sum === number){
+        console.log('is an Armstrong Number')
+      }
+      else{
+        console.log('is not an Armstrong Number')
+      }
+}
+
+//find Perfect
+   function perfect(number){
+    var sum=0;
+    for(var i=1;i < Math.sqrt(number);i++){
+      if(number % i === 0){
+        sum=sum+i;
+      
+      if(i !== 0 && i !== Math.sqrt(number)){
+        sum=sum+ (number / i);
+      }
+      }
+    }
+
+    if(sum === number * 2){
+      console.log('Perfect number')
+    }else{
+      console.log('Not a Perfect number')
+    }
+   }
+
+//find prime
+function prime(number){
+  for(var i = 2 ; i < number ; i++){
+    if(number % i === 0){
+      console.log('not a prime number')
+      break;
+    }
+    else{
+      console.log('Prime Number')
+    }
+    }
+  
+}
+//print & call funcation
+
+    var number=parseInt(prompt('Enter the Positive Number'));
+    Armstrong(number);
+    perfect(number)
+    prime(number)
