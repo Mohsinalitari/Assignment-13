@@ -113,3 +113,35 @@ function prime(number){
     Armstrong(number);
     perfect(number)
     prime(number)
+//Write a js program to find all prime numbers between given interval using functions.
+function isPrime(num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Function to find all prime numbers within a given interval
+function findPrimesInRange(start, end) {
+    let primes = [];
+    for (let i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            primes.push(i);
+        }
+    }
+    return primes;
+}
+
+var start = parseInt(prompt('Enter the start number'));
+var end = parseInt(prompt('Enter the end number'));
+
+// Call the function to find prime numbers between start and end
+var primesnumber = findPrimesInRange(start, end);
+
+// Display the result
+console.log("Prime numbers between", start, "and", end, ":", primesnumber);
